@@ -3,6 +3,8 @@ import View from './view.js';
 
 class ResultsView extends View{
     _parentElement = document.querySelector('.results');
+    _errMessage = 'No rercipes found for your query. Try again!';
+    _successMessage = '';
 
     _generateMarkup() {
         console.log(this._data);

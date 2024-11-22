@@ -1,9 +1,12 @@
+import { Array } from 'core-js/library/web/timers';
 import icons from 'url:../../img/icons.svg'; //parcel2
 
 export default class View {
     _data;
 
     render(data) {
+        if (!data || (Array.isArray(data) && data.length === 0)) return this.renderError();
+
         this._data = data;
         const markup = this._generateMarkup();
         this._clear();
@@ -34,7 +37,7 @@ export default class View {
                 <use href="${icons}#icon-alert-traingle"</use>
               </svg>
             </div>
-            <p>${_errMessage}</p>
+            <p>${message}</p>
           </div>
         `;
         this._clear();
@@ -49,7 +52,7 @@ export default class View {
                 <use href="${icons}#icon-smile"</use>
               </svg>
             </div>
-            <p>${_successMessage}</p>
+            <p>${message}</p>
           </div>
         `;
         this._clear();

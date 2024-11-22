@@ -3092,6 +3092,8 @@ var _viewJs = require("./view.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class ResultsView extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector('.results');
+    _errMessage = 'No rercipes found for your query. Try again!';
+    _successMessage = '';
     _generateMarkup() {
         console.log(this._data);
         return this._data.map(this._generateMarkupPreview).join('');
